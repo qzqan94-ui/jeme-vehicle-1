@@ -119,7 +119,7 @@ input[type="text"], input[type="date"], input[type="time"] {
     background: white;
     padding: 20px;
     border-radius: 8px;
-    width: 80%;
+    width: 100%;
     max-width: 600px;
     text-align: center;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
@@ -459,10 +459,10 @@ function renderResult(){
 </div>
 <h5 style="color:var(--accent); text-align:center; flex:1; margin:0;">رقم تسلسلي\\\</h5>
 <table>
-        <th style="width:25%;">نوع السيارة</th>
-        <td style="width:25%;"><input type="text" id="resCarType" value="${escapeHtml(carType)}"></td>
-        <th style="width:25%;">رقم اللوحة</th>
-        <td style="width:25%;"><input type="text" id="resPlate" value="${escapeHtml(plate)}"></td>
+        <th style="width:100%;">نوع السيارة</th>
+        <td style="width:100%;"><input type="text" id="resCarType" value="${escapeHtml(carType)}"></td>
+        <th style="width:100%;">رقم اللوحة</th>
+        <td style="width:100%;"><input type="text" id="resPlate" value="${escapeHtml(plate)}"></td>
     </table>
 
     <table>
@@ -565,7 +565,7 @@ function renderResult(){
         <th>اسم المستلم</th><th>التوقيع</th><th>اسم المستلم</th><th>التوقيع</th>
       </tr>
       <tr>
-        <td><input type="text" placeholder="اكتب الاسم هنا" style="width:95%; text-align:center;" value="${escapeHtml(receiver)}"></td>
+        <td><input type="text" placeholder="اكتب الاسم هنا" style="width:100%; text-align:center;" value="${escapeHtml(receiver)}"></td>
         <td id="resSignCell"><img id="resSignImg" src="${signData}" alt="التوقيع" style="max-width:200px; border:1px solid #ccc; border-radius:6px;"></td>
         <td><input type="text" placeholder="اكتب الاسم هنا" style="width:95%; text-align:center;" value="${escapeHtml(receiver)}"></td>
         <td id="resSignCell"><img id="resSignImg" src="${signData}" alt="التوقيع" style="max-width:200px; border:1px solid #ccc; border-radius:6px;"></td>
@@ -621,10 +621,10 @@ function renderResult(){
     
   
       <tr style="text-align:center;">
-        <td><input type="text" value="${escapeHtml(carType)}" style="width:95%; text-align:center;"></td>
-        <td><input type="text" value="${escapeHtml(plate)}" style="width:95%; text-align:center;"></td>
-        <td><input type="text" value="${escapeHtml(model)}" style="width:95%; text-align:center;"></td>
-        <td><input type="text" value="${escapeHtml(color)}" style="width:95%; text-align:center;"></td>
+        <td><input type="text" value="${escapeHtml(carType)}" style="width:100%; text-align:center;"></td>
+        <td><input type="text" value="${escapeHtml(plate)}" style="width:100%; text-align:center;"></td>
+        <td><input type="text" value="${escapeHtml(model)}" style="width:100%; text-align:center;"></td>
+        <td><input type="text" value="${escapeHtml(color)}" style="width:100%; text-align:center;"></td>
         <td>مستخدمة</td>
       </tr>
     </table>
@@ -632,7 +632,7 @@ function renderResult(){
         <th></th><th></th><th>اسم المستلم</th><th></th>
       </tr>
       <tr>
-        <td><input type="text" placeholder="اكتب الاسم هنا" style="width:95%; text-align:center;" value="${escapeHtml(receiver)}"></td>
+        <td><input type="text" placeholder="اكتب الاسم هنا" style="width:100%; text-align:center;" value="${escapeHtml(receiver)}"></td>
         <td id="resSignCell"><img id="resSignImg" src="${signData}" alt="التوقيع" style="max-width:200px; border:1px solid #ccc; border-radius:6px;"></td>
         <td><span class="name">الجهه هيئة التراث</span></td>
         <td></td>
