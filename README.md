@@ -5,18 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>نموذج تسليم المركبة - تفاعلي</title>
   <style>
-/* ❌ احذف هذا الجزء الموجود داخل @media (max-width: 768px) */
-@media (max-width: 768px) {
-  /* ... أكواد أخرى ... */
-
-  .result-page th,
-  .result-page td {
-    display: block; /* ❌ هذا هو المسبب لشكل الشاشة المتعدد */
-    width: 100%;
-    box-sizing: border-box;
-  }
-}
-    input[type="text"],
+   input[type="text"],
 input[type="number"],
 input[type="date"],
 textarea {
@@ -167,7 +156,7 @@ input[type="text"], input[type="date"], input[type="time"] {
   }
 
   .result-page table {
-    width: 90%;             /* 👈 يمكنك تغييرها إلى 100% أو 80% حسب رغبتك */
+    width: 100%;             /* 👈 يمكنك تغييرها إلى 100% أو 80% حسب رغبتك */
     margin: 20px auto;      /* توسيط الجدول في الصفحة */
     border-collapse: collapse;
     font-size: 14px;
