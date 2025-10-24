@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
@@ -459,10 +459,10 @@ function renderResult(){
 </div>
 <h5 style="color:var(--accent); text-align:center; flex:1; margin:0;">رقم تسلسلي\\\</h5>
 <table>
-        <th style="width:100%;">نوع السيارة</th>
-        <td style="width:100%;"><input type="text" id="resCarType" value="${escapeHtml(carType)}"></td>
-        <th style="width:100%;">رقم اللوحة</th>
-        <td style="width:100%;"><input type="text" id="resPlate" value="${escapeHtml(plate)}"></td>
+        <th style="width:25%;">نوع السيارة</th>
+        <td style="width:25%;"><input type="text" id="resCarType" value="${escapeHtml(carType)}"></td>
+        <th style="width:25%;">رقم اللوحة</th>
+        <td style="width:25%;"><input type="text" id="resPlate" value="${escapeHtml(plate)}"></td>
     </table>
 
     <table>
@@ -565,7 +565,7 @@ function renderResult(){
         <th>اسم المستلم</th><th>التوقيع</th><th>اسم المستلم</th><th>التوقيع</th>
       </tr>
       <tr>
-        <td><input type="text" placeholder="اكتب الاسم هنا" style="width:100%; text-align:center;" value="${escapeHtml(receiver)}"></td>
+        <td><input type="text" placeholder="اكتب الاسم هنا" style="width:95%; text-align:center;" value="${escapeHtml(receiver)}"></td>
         <td id="resSignCell"><img id="resSignImg" src="${signData}" alt="التوقيع" style="max-width:200px; border:1px solid #ccc; border-radius:6px;"></td>
         <td><input type="text" placeholder="اكتب الاسم هنا" style="width:95%; text-align:center;" value="${escapeHtml(receiver)}"></td>
         <td id="resSignCell"><img id="resSignImg" src="${signData}" alt="التوقيع" style="max-width:200px; border:1px solid #ccc; border-radius:6px;"></td>
@@ -809,4 +809,3 @@ function placeFuelMarkerOnResult(containerId, value) {
 
 </body>
 </html>
-
