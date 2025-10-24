@@ -43,7 +43,7 @@ td {
 }
 
 .result-page table {
-  width: 100%;
+  width: 200%;
   border-collapse: collapse;
   margin-bottom: 20px;
 }
