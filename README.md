@@ -5,7 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>نموذج تسليم المركبة - تفاعلي</title>
   <style>
-   input[type="text"],
+td * {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+
+    input[type="text"],
 input[type="number"],
 input[type="date"],
 textarea {
