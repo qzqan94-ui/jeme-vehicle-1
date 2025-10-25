@@ -5,7 +5,26 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>نموذج تسليم المركبة - تفاعلي</title>
   <style>
-   input[type="text"],
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* يضمن توزيع الأعمدة بالتساوي */
+}
+
+td, th {
+  width: auto;
+  word-wrap: break-word;
+  text-align: center;
+  vertical-align: middle;
+}
+
+input, select, textarea {
+  width: 100%; /* يجعل الحقول تملأ الخلية بالكامل */
+  box-sizing: border-box; /* يحافظ على تناسق العرض */
+  text-align: center;
+}
+
+    input[type="text"],
 input[type="number"],
 input[type="date"],
 textarea {
@@ -809,3 +828,4 @@ function placeFuelMarkerOnResult(containerId, value) {
 
 </body>
 </html>
+
