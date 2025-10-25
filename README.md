@@ -4,7 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>نموذج تسليم المركبة - تفاعلي</title>
+  <link rel="stylesheet" href="style.css?v=3">
+
+
   <style>
+    td {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
 td * {
   display: block !important;
   width: 100% !important;
@@ -12,7 +20,7 @@ td * {
   box-sizing: border-box !important;
 }
 
-    input[type="text"],
+   input[type="text"],
 input[type="number"],
 input[type="date"],
 textarea {
@@ -50,7 +58,7 @@ td {
 }
 
 .result-page table {
-  width: 200%;
+  width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
 }
@@ -126,7 +134,7 @@ input[type="text"], input[type="date"], input[type="time"] {
     background: white;
     padding: 20px;
     border-radius: 8px;
-    width: 100%;
+    width: 80%;
     max-width: 600px;
     text-align: center;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
@@ -163,7 +171,7 @@ input[type="text"], input[type="date"], input[type="time"] {
   }
 
   .result-page table {
-    width: 100%;             /* 👈 يمكنك تغييرها إلى 100% أو 80% حسب رغبتك */
+    width: 90%;             /* 👈 يمكنك تغييرها إلى 100% أو 80% حسب رغبتك */
     margin: 20px auto;      /* توسيط الجدول في الصفحة */
     border-collapse: collapse;
     font-size: 14px;
@@ -211,7 +219,7 @@ input[type="text"], input[type="date"], input[type="time"] {
           <div class="fuel-box" id="fuelBeforeBox">
             <img id="fuelBeforeImg" src="car bt.png" alt="عداد البنزين قبل">
           </div>
-          <select id="fuelBeforeSelect" style="width:200px;">
+          <select id="fuelBeforeSelect" style="width: 100% !important;">
             <option value="">اختر نسبة</option>
             <option value="فارغ">فارغ</option>
             <option value="ربع">ربع</option>
@@ -238,7 +246,7 @@ input[type="text"], input[type="date"], input[type="time"] {
           <div class="fuel-box" id="fuelAfterBox">
             <img id="fuelAfterImg" src="car bt.png" alt="عداد البنزين بعد">
           </div>
-          <select id="fuelAfterSelect" style="width:200px;">
+          <select id="fuelAfterSelect" style="width: 100% !important;">
             <option value="">اختر نسبة</option>
             <option value="فارغ">فارغ</option>
             <option value="ربع">ربع</option>
@@ -628,10 +636,10 @@ function renderResult(){
     
   
       <tr style="text-align:center;">
-        <td><input type="text" value="${escapeHtml(carType)}" style="width:100%; text-align:center;"></td>
-        <td><input type="text" value="${escapeHtml(plate)}" style="width:100%; text-align:center;"></td>
-        <td><input type="text" value="${escapeHtml(model)}" style="width:100%; text-align:center;"></td>
-        <td><input type="text" value="${escapeHtml(color)}" style="width:100%; text-align:center;"></td>
+        <td><input type="text" value="${escapeHtml(carType)}" style="width:95%; text-align:center;"></td>
+        <td><input type="text" value="${escapeHtml(plate)}" style="width:95%; text-align:center;"></td>
+        <td><input type="text" value="${escapeHtml(model)}" style="width:95%; text-align:center;"></td>
+        <td><input type="text" value="${escapeHtml(color)}" style="width:95%; text-align:center;"></td>
         <td>مستخدمة</td>
       </tr>
     </table>
@@ -639,7 +647,7 @@ function renderResult(){
         <th></th><th></th><th>اسم المستلم</th><th></th>
       </tr>
       <tr>
-        <td><input type="text" placeholder="اكتب الاسم هنا" style="width:100%; text-align:center;" value="${escapeHtml(receiver)}"></td>
+        <td><input type="text" placeholder="اكتب الاسم هنا" style="width:95%; text-align:center;" value="${escapeHtml(receiver)}"></td>
         <td id="resSignCell"><img id="resSignImg" src="${signData}" alt="التوقيع" style="max-width:200px; border:1px solid #ccc; border-radius:6px;"></td>
         <td><span class="name">الجهه هيئة التراث</span></td>
         <td></td>
