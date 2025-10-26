@@ -8,45 +8,193 @@
 
 
   <style>
-    td {
-  text-align: center !important;
-  vertical-align: middle !important;
+/*------------------------------
+  إعدادات أساسية للصفحة
+------------------------------*/
+:root {
+  --accent: #ff8c00;
+  --muted: #666;
+  --card: #fff;
 }
 
-td * {
-  display: block !important;
-  width: 100% !important;
-  text-align: center !important;
-  box-sizing: border-box !important;
-}
-
-   input[type="text"],
-input[type="number"],
-input[type="date"],
-textarea {
-  text-align: center;
-  vertical-align: middle;
-  line-height: 1.6;
-  height: 30px;
-  padding: 0;
-  display: inline-block;
-  font-size: 16px;
-  font-family: inherit;
-}
-
-td {
-  vertical-align: middle;
-}
-
-    html, body {
+html, body {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  background: #fafafa;
+  color: #111;
+  direction: rtl;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  margin: 16px;
 }
 
+/*------------------------------
+  الحاوية العامة
+------------------------------*/
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+/*------------------------------
+  العناوين والنصوص
+------------------------------*/
+h1 {
+  color: var(--accent);
+  text-align: center;
+  margin: 6px 0 12px;
+}
+
+label {
+  display: block;
+  text-align: right;
+  margin: 8px 0;
+  font-weight: 600;
+}
+
+/*------------------------------
+  الحقول النصية والإدخالات
+------------------------------*/
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+/*------------------------------
+  تنسيق الخلايا في الجدول
+------------------------------*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
+}
+
+th, td {
+  border: 1px solid #000;
+  padding: 8px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+th {
+  background: #f1f1f1;
+  font-weight: bold;
+}
+
+.section-title {
+  background: #f8f8f8;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+}
+
+/*------------------------------
+  الأزرار والتحكم
+------------------------------*/
+.controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #e07000;
+}
+
+button.secondary {
+  background: #eee;
+  color: #222;
+}
+
+.print-btn {
+  background: #2b7cff;
+}
+
+/*------------------------------
+  الصور والرسوم
+------------------------------*/
+.image-row {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.car-box,
+.fuel-box {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.car-box img,
+.fuel-box img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.car-box {
+  width: 520px;
+}
+
+.fuel-box {
+  width: 260px;
+  padding: 10px;
+}
+
+/* علامات الضرر */
+.marker {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.85);
+  border: 2px solid #800;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+/*------------------------------
+  الصفحة النهائية (نتائج)
+------------------------------*/
 .result-page {
   display: none;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
@@ -57,62 +205,66 @@ td {
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-.result-page table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
+/*------------------------------
+  عناصر إضافية
+------------------------------*/
+.progress {
+  height: 8px;
+  background: #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
 }
 
-.result-page img {
-  max-width: 100%;
-  height: auto;
+.progress > div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #e07000);
+  width: 0%;
+}
+
+.small {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 6px;
+}
+
+.name {
+  color: #0040ff;
+  font-weight: 700;
+}
+
+.note {
+  color: #555;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.actions-result {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+/*------------------------------
+  مؤثرات الانتقال
+------------------------------*/
+.step {
+  display: none;
+}
+
+.step.active {
   display: block;
-  margin: 5px auto;
+  animation: fade 0.25s ease-in-out;
 }
 
-input[type="text"], input[type="date"], input[type="time"] {
-      font-size: 13px;
-      padding: 4px 6px;
-      width: 98%; 
-      box-sizing: border-box; 
-      /* هذا السطر هو المسؤول عن توسيط الكتابة داخل مربع الإدخال */
-      text-align: center; 
-      border: 1px solid #aaa;
-    }
-    :root{--accent:#ff8c00;--muted:#666;--card:#fff;}
-    body{font-family:"Segoe UI", Tahoma, Arial; margin:16px; background:#fafafa; color:#111; direction:rtl;}
-    .container{max-width:980px;margin:0 auto;}
-    .card{background:var(--card); padding:18px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.05);}
-    h1{color:var(--accent); text-align:center; margin:6px 0 12px;}
-    .step{display:none;}
-    .step.active{display:block; animation:fade .25s;}
-    @keyframes fade {from{opacity:0}to{opacity:1}}
-    label{display:block; text-align:right; margin:8px 0; font-weight:600;}
-    input[type="text"], input[type="date"], input[type="time"], select {width:100%; padding:8px 10px; border-radius:6px; border:1px solid #ccc; box-sizing:border-box; text-align:center;}
-    .controls{display:flex; gap:10px; justify-content:center; margin-top:16px;}
-    button{background:var(--accent); color:#fff; border:none; padding:10px 18px; border-radius:8px; cursor:pointer;}
-    button.secondary{background:#eee; color:#222;}
-    .image-row{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-top:12px;}
-    .car-box, .fuel-box{position:relative; border:1px solid #ddd; border-radius:10px; overflow:hidden; background:#fff;}
-    .car-box img, .fuel-box img{display:block; max-width:100%; height:auto; user-select:none;}
-    .car-box{width:520px;}
-    .fuel-box{width:260px; padding:10px;}
-    .marker{position:absolute; width:18px; height:18px; border-radius:50%; background:rgba(255,0,0,.85); border:2px solid #800; transform:translate(-50%,-50%); cursor:pointer;}
-    .small{font-size:13px;color:var(--muted); text-align:center; margin-top:6px;}
-    canvas{border:1px dashed #ccc; border-radius:8px; background:#fff; touch-action:none;}
-    .progress{height:8px; background:#eee; border-radius:6px; overflow:hidden; margin-bottom:12px;}
-    .progress > div{height:100%; background:linear-gradient(90deg,var(--accent), #e07000); width:0%;}
-    /* Result layout (mirror template) */
-    .result-page{display:none; margin-top:10px;}
-    table{width:100%; border-collapse:collapse; margin-bottom:18px;}
-    th,td{border:1px solid #000; padding:8px; vertical-align:middle;}
-    th{background:#f1f1f1; font-weight:bold;}
-    .section-title{background:#f8f8f8; font-weight:bold; text-align:center; font-size:16px;}
-    .note{color:#555; font-size:14px; text-align:center; margin-top:6px;}
-    .name{color:#0040ff; font-weight:700;}
-    .actions-result{display:flex; gap:10px; justify-content:center; margin-top:12px;}
-    .print-btn{background:#2b7cff;}
-    
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+ 
   </style>
 </head>
 <body>
