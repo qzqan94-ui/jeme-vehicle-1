@@ -183,7 +183,7 @@ button.secondary {
 .fuel-box img,
 .result-page .car-container img,
 .result-page .fuel-container img {
-  display: block;
+  
   width: 100%;
   height: auto;
   margin: 0 auto;
@@ -343,13 +343,11 @@ table td, table th {
 
 <style>
   /* ✅ تنسيق عام للجدول داخل صفحة النتيجة */
-  .result-page {
-    overflow-x: auto; /* يسمح بالتمرير الأفقي في حال كان الجدول عريض */
-  }
+     /* يسمح بالتمرير الأفقي في حال كان الجدول عريض */
 
   .result-page table {
-    width: 90%;             /* 👈 يمكنك تغييرها إلى 100% أو 80% حسب رغبتك */
-    margin: 20px auto;      /* توسيط الجدول في الصفحة */
+    width: 150%;             /* 👈 يمكنك تغييرها إلى 100% أو 80% حسب رغبتك */
+    margin: 50 auto;      /* توسيط الجدول في الصفحة */
     border-collapse: collapse;
     font-size: 14px;
     border: 1px solid #000;
