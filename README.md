@@ -8,7 +8,26 @@
 
 
   <style>
-/*------------------------------
+    td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 6px 8px;
+}
+
+td input,
+td textarea,
+td select,
+td img,
+td span {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+
+   /*------------------------------
   إعدادات أساسية للصفحة
 ------------------------------*/
 :root {
@@ -150,34 +169,36 @@ button.secondary {
   flex-wrap: wrap;
   margin-top: 12px;
 }
-
+/* Make car/fuel boxes responsive and horizontally centered */
 .car-box,
 .fuel-box {
-  position: relative;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
+  width: 100%;
+  max-width: 520px;      /* keep original max size */
+  margin: 0 auto;        /* center inside parent */
+  box-sizing: border-box;
 }
 
+/* Ensure images behave as block-level, scale and centered */
 .car-box img,
-.fuel-box img {
+.fuel-box img,
+.result-page .car-container img,
+.result-page .fuel-container img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  user-select: none;
+  margin: 0 auto;
 }
 
-.car-box {
-  width: 520px;
+/* Result page: container should be block and positioned relative for markers */
+.result-page .car-container,
+.result-page .fuel-container {
+  display: block;
+  max-width: 520px;
+  margin: 0 auto;
+  position: relative; /* so .marker absolute positions are relative to this box */
 }
 
-.fuel-box {
-  width: 260px;
-  padding: 10px;
-}
-
-/* علامات الضرر */
+/* Marker tweaks (keeps the red dot visually centered on its coordinates) */
 .marker {
   position: absolute;
   width: 18px;
@@ -185,15 +206,20 @@ button.secondary {
   border-radius: 50%;
   background: rgba(255, 0, 0, 0.85);
   border: 2px solid #800;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* center the dot on the coordinates */
   cursor: pointer;
+  pointer-events: auto;
 }
 
+/* Optional: ensure text-align center on table cells (if removal happened) */
+table td, table th {
+  text-align: center;
+}
 /*------------------------------
   الصفحة النهائية (نتائج)
 ------------------------------*/
 .result-page {
-  display: none;
+  display:
   margin-top: 10px;
   width: 100%;
   max-width: 100%;
@@ -264,8 +290,7 @@ button.secondary {
   from { opacity: 0; }
   to { opacity: 1; }
 }
- 
-  </style>
+</style>
 </head>
 <body>
 
@@ -318,17 +343,19 @@ button.secondary {
 
 <style>
   /* ✅ تنسيق عام للجدول داخل صفحة النتيجة */
-  .result-page {
-    overflow-x: auto; /* يسمح بالتمرير الأفقي في حال كان الجدول عريض */
-  }
+     /* يسمح بالتمرير الأفقي في حال كان الجدول عريض */
 
   .result-page table {
-    width: 90%;             /* 👈 يمكنك تغييرها إلى 100% أو 80% حسب رغبتك */
-    margin: 20px auto;      /* توسيط الجدول في الصفحة */
+              /* 👈 يمكنك تغييرها إلى 100% أو 80% حسب رغبتك */
+        /* توسيط الجدول في الصفحة */
     border-collapse: collapse;
     font-size: 14px;
     border: 1px solid #000;
   }
+  body table {
+    display: ;block-size:; 
+    width: 100%;
+    overflow: auto;}
 
   .result-page th, 
   .result-page td {
@@ -337,6 +364,14 @@ button.secondary {
     text-align: center;
   }
 
+@media print {
+  table {
+    page-break-inside: avoid;
+  }
+  td, th {
+    padding: 4px 6px;
+  }
+}
 
     
   
