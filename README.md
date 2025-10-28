@@ -1,4 +1,4 @@
-<!>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
@@ -183,7 +183,7 @@ button.secondary {
 .fuel-box img,
 .result-page .car-container img,
 .result-page .fuel-container img {
-  
+  display: none;
   width: 100%;
   height: auto;
   margin: 0 auto;
@@ -1007,4 +1007,3 @@ function placeFuelMarkerOnResult(containerId, value) {
 
 </body>
 </html>
-
