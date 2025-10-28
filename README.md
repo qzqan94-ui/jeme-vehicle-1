@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
@@ -1007,3 +1007,4 @@ function placeFuelMarkerOnResult(containerId, value) {
 
 </body>
 </html>
+
