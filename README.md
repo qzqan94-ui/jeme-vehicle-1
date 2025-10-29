@@ -1,12 +1,49 @@
 
-<!11111 html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>نموذج تسليم المركبة - تفاعلي</title>
-  <style>
-   input[type="text"],
+  
+  
+</head>
+<body>
+
+<style>
+ /*--------------------------------
+  ✅ ROOT + BODY + CONTAINER
+--------------------------------*/
+:root {
+  --accent: #ff8c00;
+  --muted: #666;
+  --card: #fff;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Arial;
+  margin: 16px;
+  background: #fafafa;
+  color: #111;
+  direction: rtl;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+
+/*--------------------------------
+  ✅ INPUTS GENERAL
+--------------------------------*/
+input[type="text"],
 input[type="number"],
 input[type="date"],
 textarea {
@@ -20,16 +57,57 @@ textarea {
   font-family: inherit;
 }
 
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+  font-size: 13px;
+  padding: 4px 6px;
+  width: 98%;
+  border: 1px solid #aaa;
+}
+
+
+/*--------------------------------
+  ✅ TABLE + TD
+--------------------------------*/
 td {
   vertical-align: middle;
 }
 
-    html, body {
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
 }
 
+th,
+td {
+  border: 1px solid #000;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+th {
+  background: #f1f1f1;
+  font-weight: bold;
+}
+
+
+/*--------------------------------
+ ✅ RESULT PAGE
+--------------------------------*/
 .result-page {
   display: none;
   margin-top: 20px;
@@ -44,9 +122,18 @@ td {
 }
 
 .result-page table {
-  width: 100%;
+  width: 90%;
+  margin: 20px auto;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  font-size: 14px;
+  border: 1px solid #000;
+}
+
+.result-page th,
+.result-page td {
+  border: 1px solid #000;
+  padding: 8px 10px;
+  text-align: center;
 }
 
 .result-page img {
@@ -56,89 +143,206 @@ td {
   margin: 5px auto;
 }
 
-input[type="text"], input[type="date"], input[type="time"] {
-      font-size: 13px;
-      padding: 4px 6px;
-      width: 98%; 
-      box-sizing: border-box; 
-      /* هذا السطر هو المسؤول عن توسيط الكتابة داخل مربع الإدخال */
-      text-align: center; 
-      border: 1px solid #aaa;
-    }
-    :root{--accent:#ff8c00;--muted:#666;--card:#fff;}
-    body{font-family:"Segoe UI", Tahoma, Arial; margin:16px; background:#fafafa; color:#111; direction:rtl;}
-    .container{max-width:980px;margin:0 auto;}
-    .card{background:var(--card); padding:18px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.05);}
-    h1{color:var(--accent); text-align:center; margin:6px 0 12px;}
-    .step{display:none;}
-    .step.active{display:block; animation:fade .25s;}
-    @keyframes fade {from{opacity:0}to{opacity:1}}
-    label{display:block; text-align:right; margin:8px 0; font-weight:600;}
-    input[type="text"], input[type="date"], input[type="time"], select {width:100%; padding:8px 10px; border-radius:6px; border:1px solid #ccc; box-sizing:border-box; text-align:center;}
-    .controls{display:flex; gap:10px; justify-content:center; margin-top:16px;}
-    button{background:var(--accent); color:#fff; border:none; padding:10px 18px; border-radius:8px; cursor:pointer;}
-    button.secondary{background:#eee; color:#222;}
-    .image-row{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-top:12px;}
-    .car-box, .fuel-box{position:relative; border:1px solid #ddd; border-radius:10px; overflow:hidden; background:#fff;}
-    .car-box img, .fuel-box img{display:block; max-width:100%; height:auto; user-select:none;}
-    .car-box{width:520px;}
-    .fuel-box{width:260px; padding:10px;}
-    .marker{position:absolute; width:18px; height:18px; border-radius:50%; background:rgba(255,0,0,.85); border:2px solid #800; transform:translate(-50%,-50%); cursor:pointer;}
-    .small{font-size:13px;color:var(--muted); text-align:center; margin-top:6px;}
-    canvas{border:1px dashed #ccc; border-radius:8px; background:#fff; touch-action:none;}
-    .progress{height:8px; background:#eee; border-radius:6px; overflow:hidden; margin-bottom:12px;}
-    .progress > div{height:100%; background:linear-gradient(90deg,var(--accent), #e07000); width:0%;}
-    /* Result layout (mirror template) */
-    .result-page{display:none; margin-top:10px;}
-    table{width:100%; border-collapse:collapse; margin-bottom:18px;}
-    th,td{border:1px solid #000; padding:8px; vertical-align:middle;}
-    th{background:#f1f1f1; font-weight:bold;}
-    .section-title{background:#f8f8f8; font-weight:bold; text-align:center; font-size:16px;}
-    .note{color:#555; font-size:14px; text-align:center; margin-top:6px;}
-    .name{color:#0040ff; font-weight:700;}
-    .actions-result{display:flex; gap:10px; justify-content:center; margin-top:12px;}
-    .print-btn{background:#2b7cff;}
-    
-  </style>
-</head>
-<body>
 
-<style>
-  .terms-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-  }
+/*--------------------------------
+ ✅ TITLES
+--------------------------------*/
+h1 {
+  color: var(--accent);
+  text-align: center;
+  margin: 6px 0 12px;
+}
 
-  .popup-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-  }
+.section-title {
+  background: #f8f8f8;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+}
 
-  #acceptTermsBtn {
-    background: #ff8c00;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 15px;
-  }
+.note {
+  color: #555;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 6px;
+}
 
-  #acceptTermsBtn:hover {
-    background: #e07000;
-  }
+.name {
+  color: #0040ff;
+  font-weight: 700;
+}
+
+
+/*--------------------------------
+ ✅ STEP + PROGRESS
+--------------------------------*/
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+  animation: fade .25s;
+}
+
+@keyframes fade {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+.progress {
+  height: 8px;
+  background: #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress > div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #e07000);
+  width: 0%;
+}
+
+
+/*--------------------------------
+ ✅ CONTROL BUTTONS
+--------------------------------*/
+.controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #eee;
+  color: #222;
+}
+
+.actions-result {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.print-btn {
+  background: #2b7cff;
+}
+
+
+/*--------------------------------
+ ✅ IMG CONTAINERS
+--------------------------------*/
+.image-row {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.car-box,
+.fuel-box {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.car-box {
+  width: 520px;
+}
+
+.fuel-box {
+  width: 260px;
+  padding: 10px;
+}
+
+.car-box img,
+.fuel-box img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.marker {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255,0,0,.85);
+  border: 2px solid #800;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
+}
+
+.small {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 6px;
+}
+
+canvas {
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  background: #fff;
+  touch-action: none;
+}
+
+
+/*--------------------------------
+ ✅ TERMS POPUP
+--------------------------------*/
+.terms-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+#acceptTermsBtn {
+  background: #ff8c00;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+#acceptTermsBtn:hover {
+  background: #e07000;
+}
+
 </style>
 
   <div class="container">
@@ -151,29 +355,7 @@ input[type="text"], input[type="date"], input[type="time"] {
 </div>
 
 <style>
-  /* ✅ تنسيق عام للجدول داخل صفحة النتيجة */
-  .result-page {
-    overflow-x: auto; /* يسمح بالتمرير الأفقي في حال كان الجدول عريض */
-  }
-
-  .result-page table {
-    width: 90%;             /* 👈 يمكنك تغييرها إلى 100% أو 80% حسب رغبتك */
-    margin: 20px auto;      /* توسيط الجدول في الصفحة */
-    border-collapse: collapse;
-    font-size: 14px;
-    border: 1px solid #000;
-  }
-
-  .result-page th, 
-  .result-page td {
-    border: 1px solid #000;
-    padding: 8px 10px;
-    text-align: center;
-  }
-
-
-    
-  
+ 
 </style>
       <!-- STEP 1: بيانات المركبة الأساسية -->
       <div id="step1" class="step active">
