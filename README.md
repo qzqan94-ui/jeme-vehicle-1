@@ -4,223 +4,34 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>نموذج تسليم المركبة - تفاعلي</title>
-  <link rel="stylesheet" href="style.css?v=3">
-
-
   <style>
-    td {
+   input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
   text-align: center;
   vertical-align: middle;
-  padding: 6px 8px;
-}
-
-td input,
-td textarea,
-td select,
-td img,
-td span {
+  line-height: 1.6;
+  height: 30px;
+  padding: 0;
   display: inline-block;
-  width: auto;
-  max-width: 100%;
-  text-align: center;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+td {
   vertical-align: middle;
-  margin: 0 auto;
 }
 
-   /*------------------------------
-  إعدادات أساسية للصفحة
-------------------------------*/
-:root {
-  --accent: #ff8c00;
-  --muted: #666;
-  --card: #fff;
-}
-
-html, body {
+    html, body {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #fafafa;
-  color: #111;
-  direction: rtl;
-  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-  margin: 16px;
 }
 
-/*------------------------------
-  الحاوية العامة
-------------------------------*/
-.container {
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.card {
-  background: var(--card);
-  padding: 18px;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-}
-
-/*------------------------------
-  العناوين والنصوص
-------------------------------*/
-h1 {
-  color: var(--accent);
-  text-align: center;
-  margin: 6px 0 12px;
-}
-
-label {
-  display: block;
-  text-align: right;
-  margin: 8px 0;
-  font-weight: 600;
-}
-
-/*------------------------------
-  الحقول النصية والإدخالات
-------------------------------*/
-input[type="text"],
-input[type="number"],
-input[type="date"],
-input[type="time"],
-textarea,
-select {
-  width: 100%;
-  padding: 8px 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: 14px;
-  font-family: inherit;
-  line-height: 1.6;
-}
-
-/*------------------------------
-  تنسيق الخلايا في الجدول
-------------------------------*/
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 18px;
-}
-
-th, td {
-  border: 1px solid #000;
-  padding: 8px;
-  vertical-align: middle;
-  text-align: center;
-}
-
-th {
-  background: #f1f1f1;
-  font-weight: bold;
-}
-
-.section-title {
-  background: #f8f8f8;
-  font-weight: bold;
-  text-align: center;
-  font-size: 16px;
-}
-
-/*------------------------------
-  الأزرار والتحكم
-------------------------------*/
-.controls {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 16px;
-}
-
-button {
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-button:hover {
-  background: #e07000;
-}
-
-button.secondary {
-  background: #eee;
-  color: #222;
-}
-
-.print-btn {
-  background: #2b7cff;
-}
-
-/*------------------------------
-  الصور والرسوم
-------------------------------*/
-.image-row {
-  display: flex;
-  gap: 18px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 12px;
-}
-/* Make car/fuel boxes responsive and horizontally centered */
-.car-box,
-.fuel-box {
-  width: 100%;
-  max-width: 520px;      /* keep original max size */
-  margin: 0 auto;        /* center inside parent */
-  box-sizing: border-box;
-}
-
-/* Ensure images behave as block-level, scale and centered */
-.car-box img,
-.fuel-box img,
-.result-page .car-container img,
-.result-page .fuel-container img {
-  display: none;
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-}
-
-/* Result page: container should be block and positioned relative for markers */
-.result-page .car-container,
-.result-page .fuel-container {
-  display: block;
-  max-width: 520px;
-  margin: 0 auto;
-  position: relative; /* so .marker absolute positions are relative to this box */
-}
-
-/* Marker tweaks (keeps the red dot visually centered on its coordinates) */
-.marker {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: rgba(255, 0, 0, 0.85);
-  border: 2px solid #800;
-  transform: translate(-50%, -50%); /* center the dot on the coordinates */
-  cursor: pointer;
-  pointer-events: auto;
-}
-
-/* Optional: ensure text-align center on table cells (if removal happened) */
-table td, table th {
-  text-align: center;
-}
-/*------------------------------
-  الصفحة النهائية (نتائج)
-------------------------------*/
 .result-page {
   display: none;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
@@ -231,66 +42,63 @@ table td, table th {
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-/*------------------------------
-  عناصر إضافية
-------------------------------*/
-.progress {
-  height: 8px;
-  background: #eee;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-bottom: 12px;
+.result-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
-.progress > div {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent), #e07000);
-  width: 0%;
-}
-
-.small {
-  font-size: 13px;
-  color: var(--muted);
-  text-align: center;
-  margin-top: 6px;
-}
-
-.name {
-  color: #0040ff;
-  font-weight: 700;
-}
-
-.note {
-  color: #555;
-  font-size: 14px;
-  text-align: center;
-  margin-top: 6px;
-}
-
-.actions-result {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 12px;
-}
-
-/*------------------------------
-  مؤثرات الانتقال
-------------------------------*/
-.step {
-  display: none;
-}
-
-.step.active {
+.result-page img {
+  max-width: 100%;
+  height: auto;
   display: block;
-  animation: fade 0.25s ease-in-out;
+  margin: 5px auto;
 }
 
-@keyframes fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-</style>
+input[type="text"], input[type="date"], input[type="time"] {
+      font-size: 13px;
+      padding: 4px 6px;
+      width: 98%; 
+      box-sizing: border-box; 
+      /* هذا السطر هو المسؤول عن توسيط الكتابة داخل مربع الإدخال */
+      text-align: center; 
+      border: 1px solid #aaa;
+    }
+    :root{--accent:#ff8c00;--muted:#666;--card:#fff;}
+    body{font-family:"Segoe UI", Tahoma, Arial; margin:16px; background:#fafafa; color:#111; direction:rtl;}
+    .container{max-width:980px;margin:0 auto;}
+    .card{background:var(--card); padding:18px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.05);}
+    h1{color:var(--accent); text-align:center; margin:6px 0 12px;}
+    .step{display:none;}
+    .step.active{display:block; animation:fade .25s;}
+    @keyframes fade {from{opacity:0}to{opacity:1}}
+    label{display:block; text-align:right; margin:8px 0; font-weight:600;}
+    input[type="text"], input[type="date"], input[type="time"], select {width:100%; padding:8px 10px; border-radius:6px; border:1px solid #ccc; box-sizing:border-box; text-align:center;}
+    .controls{display:flex; gap:10px; justify-content:center; margin-top:16px;}
+    button{background:var(--accent); color:#fff; border:none; padding:10px 18px; border-radius:8px; cursor:pointer;}
+    button.secondary{background:#eee; color:#222;}
+    .image-row{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-top:12px;}
+    .car-box, .fuel-box{position:relative; border:1px solid #ddd; border-radius:10px; overflow:hidden; background:#fff;}
+    .car-box img, .fuel-box img{display:block; max-width:100%; height:auto; user-select:none;}
+    .car-box{width:520px;}
+    .fuel-box{width:260px; padding:10px;}
+    .marker{position:absolute; width:18px; height:18px; border-radius:50%; background:rgba(255,0,0,.85); border:2px solid #800; transform:translate(-50%,-50%); cursor:pointer;}
+    .small{font-size:13px;color:var(--muted); text-align:center; margin-top:6px;}
+    canvas{border:1px dashed #ccc; border-radius:8px; background:#fff; touch-action:none;}
+    .progress{height:8px; background:#eee; border-radius:6px; overflow:hidden; margin-bottom:12px;}
+    .progress > div{height:100%; background:linear-gradient(90deg,var(--accent), #e07000); width:0%;}
+    /* Result layout (mirror template) */
+    .result-page{display:none; margin-top:10px;}
+    table{width:100%; border-collapse:collapse; margin-bottom:18px;}
+    th,td{border:1px solid #000; padding:8px; vertical-align:middle;}
+    th{background:#f1f1f1; font-weight:bold;}
+    .section-title{background:#f8f8f8; font-weight:bold; text-align:center; font-size:16px;}
+    .note{color:#555; font-size:14px; text-align:center; margin-top:6px;}
+    .name{color:#0040ff; font-weight:700;}
+    .actions-result{display:flex; gap:10px; justify-content:center; margin-top:12px;}
+    .print-btn{background:#2b7cff;}
+    
+  </style>
 </head>
 <body>
 
@@ -343,11 +151,13 @@ table td, table th {
 
 <style>
   /* ✅ تنسيق عام للجدول داخل صفحة النتيجة */
-     /* يسمح بالتمرير الأفقي في حال كان الجدول عريض */
+  .result-page {
+    overflow-x: auto; /* يسمح بالتمرير الأفقي في حال كان الجدول عريض */
+  }
 
   .result-page table {
-    width: 150%;             /* 👈 يمكنك تغييرها إلى 100% أو 80% حسب رغبتك */
-    margin: 50 auto;      /* توسيط الجدول في الصفحة */
+    width: 90%;             /* 👈 يمكنك تغييرها إلى 100% أو 80% حسب رغبتك */
+    margin: 20px auto;      /* توسيط الجدول في الصفحة */
     border-collapse: collapse;
     font-size: 14px;
     border: 1px solid #000;
@@ -360,14 +170,6 @@ table td, table th {
     text-align: center;
   }
 
-@media print {
-  table {
-    page-break-inside: avoid;
-  }
-  td, th {
-    padding: 4px 6px;
-  }
-}
 
     
   
@@ -402,7 +204,7 @@ table td, table th {
           <div class="fuel-box" id="fuelBeforeBox">
             <img id="fuelBeforeImg" src="car bt.png" alt="عداد البنزين قبل">
           </div>
-          <select id="fuelBeforeSelect" style="width: 100% !important;">
+          <select id="fuelBeforeSelect" style="width:200px;">
             <option value="">اختر نسبة</option>
             <option value="فارغ">فارغ</option>
             <option value="ربع">ربع</option>
@@ -429,7 +231,7 @@ table td, table th {
           <div class="fuel-box" id="fuelAfterBox">
             <img id="fuelAfterImg" src="car bt.png" alt="عداد البنزين بعد">
           </div>
-          <select id="fuelAfterSelect" style="width: 100% !important;">
+          <select id="fuelAfterSelect" style="width:200px;">
             <option value="">اختر نسبة</option>
             <option value="فارغ">فارغ</option>
             <option value="ربع">ربع</option>
