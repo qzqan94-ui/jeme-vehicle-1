@@ -1,19 +1,55 @@
 
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>نموذج تسليم المركبة - تفاعلي</title>
-  
-  
-</head>
-<body>
+  <style>
+   /*=============================
+=   INPUTS & TEXTAREAS
+==============================*/
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.6;
+  height: 30px;
+  padding: 0;
+  display: inline-block;
+  font-size: 16px;
+  font-family: inherit;
+}
 
-<style>
- /*--------------------------------
-  ✅ ROOT + BODY + CONTAINER
---------------------------------*/
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+  font-size: 13px;
+  padding: 4px 6px;
+  width: 98%;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid #aaa;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/*=============================
+=   GLOBAL
+==============================*/
 :root {
   --accent: #ff8c00;
   --muted: #666;
@@ -34,148 +70,31 @@ body {
   direction: rtl;
 }
 
+td {
+  vertical-align: middle;
+}
+
+/*=============================
+=   LAYOUT
+==============================*/
 .container {
   max-width: 980px;
   margin: 0 auto;
 }
 
-
-/*--------------------------------
-  ✅ INPUTS GENERAL
---------------------------------*/
-input[type="text"],
-input[type="number"],
-input[type="date"],
-textarea {
-  text-align: center;
-  vertical-align: middle;
-  line-height: 1.6;
-  height: 30px;
-  padding: 0;
-  display: inline-block;
-  font-size: 16px;
-  font-family: inherit;
+.card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.05);
 }
 
-input[type="text"],
-input[type="date"],
-input[type="time"],
-select {
-  width: 100%;
-  padding: 8px 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-input[type="text"],
-input[type="date"],
-input[type="time"] {
-  font-size: 13px;
-  padding: 4px 6px;
-  width: 98%;
-  border: 1px solid #aaa;
-}
-
-
-/*--------------------------------
-  ✅ TABLE + TD
---------------------------------*/
-td {
-  vertical-align: middle;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 18px;
-}
-
-th,
-td {
-  border: 1px solid #000;
-  padding: 8px;
-  vertical-align: middle;
-}
-
-th {
-  background: #f1f1f1;
-  font-weight: bold;
-}
-
-
-/*--------------------------------
- ✅ RESULT PAGE
---------------------------------*/
-.result-page {
-  display: none;
-  margin-top: 20px;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: auto;
-  overflow-y: visible;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-.result-page table {
-  width: 90%;
-  margin: 20px auto;
-  border-collapse: collapse;
-  font-size: 14px;
-  border: 1px solid #000;
-}
-
-.result-page th,
-.result-page td {
-  border: 1px solid #000;
-  padding: 8px 10px;
-  text-align: center;
-}
-
-.result-page img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 5px auto;
-}
-
-
-/*--------------------------------
- ✅ TITLES
---------------------------------*/
 h1 {
   color: var(--accent);
   text-align: center;
   margin: 6px 0 12px;
 }
 
-.section-title {
-  background: #f8f8f8;
-  font-weight: bold;
-  text-align: center;
-  font-size: 16px;
-}
-
-.note {
-  color: #555;
-  font-size: 14px;
-  text-align: center;
-  margin-top: 6px;
-}
-
-.name {
-  color: #0040ff;
-  font-weight: 700;
-}
-
-
-/*--------------------------------
- ✅ STEP + PROGRESS
---------------------------------*/
 .step {
   display: none;
 }
@@ -186,28 +105,17 @@ h1 {
 }
 
 @keyframes fade {
-  from { opacity: 0 }
-  to { opacity: 1 }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.progress {
-  height: 8px;
-  background: #eee;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-bottom: 12px;
+label {
+  display: block;
+  text-align: right;
+  margin: 8px 0;
+  font-weight: 600;
 }
 
-.progress > div {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent), #e07000);
-  width: 0%;
-}
-
-
-/*--------------------------------
- ✅ CONTROL BUTTONS
---------------------------------*/
 .controls {
   display: flex;
   gap: 10px;
@@ -229,21 +137,9 @@ button.secondary {
   color: #222;
 }
 
-.actions-result {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 12px;
-}
-
-.print-btn {
-  background: #2b7cff;
-}
-
-
-/*--------------------------------
- ✅ IMG CONTAINERS
---------------------------------*/
+/*=============================
+=   IMAGES
+==============================*/
 .image-row {
   display: flex;
   gap: 18px;
@@ -252,13 +148,20 @@ button.secondary {
   margin-top: 12px;
 }
 
-.car-box,
-.fuel-box {
+.car-box, .fuel-box {
   position: relative;
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
   background: #fff;
+}
+
+.car-box img,
+.fuel-box img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
 }
 
 .car-box {
@@ -270,14 +173,6 @@ button.secondary {
   padding: 10px;
 }
 
-.car-box img,
-.fuel-box img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  user-select: none;
-}
-
 .marker {
   position: absolute;
   width: 18px;
@@ -285,7 +180,7 @@ button.secondary {
   border-radius: 50%;
   background: rgba(255,0,0,.85);
   border: 2px solid #800;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   cursor: pointer;
 }
 
@@ -303,11 +198,112 @@ canvas {
   touch-action: none;
 }
 
+/*=============================
+=   PROGRESS
+==============================*/
+.progress {
+  height: 8px;
+  background: #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
 
-/*--------------------------------
- ✅ TERMS POPUP
---------------------------------*/
-.terms-popup {
+.progress > div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #e07000);
+  width: 0%;
+}
+
+/*=============================
+=   RESULT PAGE
+==============================*/
+.result-page {
+  display: none;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.result-page {
+  display: none;
+  margin-top: 10px;
+}
+
+.result-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.result-page img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 5px auto;
+}
+
+/*=============================
+=   TABLES
+==============================*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
+}
+
+th, td {
+  border: 1px solid #000;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+th {
+  background: #f1f1f1;
+  font-weight: bold;
+}
+
+.section-title {
+  background: #f8f8f8;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+}
+
+.note {
+  color: #555;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.name {
+  color: #0040ff;
+  font-weight: 700;
+}
+
+.actions-result {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.print-btn {
+  background: #2b7cff;
+}
+  </style>
+</head>
+<body>
+
+<style>
+  .terms-popup {
   position: fixed;
   top: 0;
   left: 0;
@@ -320,18 +316,18 @@ canvas {
 }
 
 .popup-content {
-  background: white;
+  background: #fff;
   padding: 20px;
   border-radius: 8px;
   width: 80%;
   max-width: 600px;
   text-align: center;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 #acceptTermsBtn {
   background: #ff8c00;
-  color: white;
+  color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
@@ -354,8 +350,26 @@ canvas {
   <h1 style="margin:0;">نموذج تسليم المركبة</h1>
 </div>
 
-<style>
- 
+<style>/* ✅ تنسيق عام للجدول داخل صفحة النتيجة */
+.result-page {
+  overflow-x: auto; /* يسمح بالتمرير الأفقي في حال كان الجدول عريض */
+}
+
+.result-page table {
+  width: 90%;        /* يمكنك تغييرها إلى 100% أو 80% حسب الحاجة */
+  margin: 20px auto; /* توسيط الجدول في الصفحة */
+  border-collapse: collapse;
+  font-size: 14px;
+  border: 1px solid #000;
+}
+
+.result-page th,
+.result-page td {
+  border: 1px solid #000;
+  padding: 8px 10px;
+  text-align: center;
+}
+
 </style>
       <!-- STEP 1: بيانات المركبة الأساسية -->
       <div id="step1" class="step active">
@@ -990,6 +1004,44 @@ function placeFuelMarkerOnResult(containerId, value) {
 }/* ملاحظة: هذه الصفحة تستخدم الصور المحلية: car.png.png و car bt.png */
 </script>
 
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 <!-- Code injected by live-server -->
 <script>
 	// <![CDATA[  <-- For SVG support
