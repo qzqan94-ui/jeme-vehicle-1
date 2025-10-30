@@ -639,7 +639,7 @@ function renderResult(){
       font-size: 16px;
     }
     .car-container img, .fuel-container img {
-      max-height: 80px;
+      max-height: 140;
     }
     .signature-table {
       page-break-inside: avoid;
@@ -1083,3 +1083,4 @@ function placeFuelMarkerOnResult(containerId, value) {
 </script>
 </body>
 </html>
+
